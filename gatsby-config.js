@@ -8,7 +8,7 @@ const token = process.env.SANITY_TOKEN;
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.bandchords.co.za',
+    siteUrl: 'https://bandchordsapp.gatsbyjs.io',
     title: 'bandChordsApp',
   },
   plugins: [
@@ -30,5 +30,17 @@ module.exports = {
       },
     },
     'gatsby-plugin-gatsby-cloud',
+    {
+      resolve: 'gatsby-plugin-page-progress',
+      options: {
+        // includePaths: ["/", { regex: "^/blog" }],
+        // excludePaths: ["/blog/beep-beep-lettuce"],
+        height: 3,
+        prependToBody: false,
+        color: `#663399`,
+        footerHeight: 500,
+        headerHeight: 0,
+      },
+    },
   ],
 };

@@ -82,12 +82,16 @@ body {
   display: block;
   position: fixed;
   height: 75px;
-  width: 70%;
+  width: 100%;
   top: 16%;
   left: 4px;
   background-color: #fff;
   z-index: -1;
   opacity: 0.2;
+
+  @media screen and (min-width: 1025px) {
+    width: calc(100% - 250px);
+  }
 }
 
 .song--line {

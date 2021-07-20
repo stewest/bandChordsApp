@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql, navigate } from 'gatsby';
 import classNames from 'classnames';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
+import { animateScroll as scroll, scroller } from 'react-scroll';
 import Layout from '../layout/Layout';
 
 export default function SingleSongPage({ data: { Song } }) {
@@ -15,7 +16,7 @@ export default function SingleSongPage({ data: { Song } }) {
     songLines.push(value.children[0]);
   }
 
-  useScrollPosition(({ prevPos, currPos }) => {
+  useScrollPosition(({ currPos }) => {
     setisActiveScroll(false);
 
     // console.log(currPos.y);
@@ -24,6 +25,23 @@ export default function SingleSongPage({ data: { Song } }) {
     }
   });
 
+  const scrollTo = () => {
+    scroller.scrollTo('songEnd', {
+      duration: 6000,
+      delay: 0,
+      smooth: 'easeInOutQuart',
+    });
+  };
+
+  // const [scrollStatus, setScrollStatus] = useState(false);
+  // useEffect(() => {
+  //   const target = document.querySelector('.song--end');
+
+  //   if (scrollStatus) {
+  //     window.scroll({ top: 0, left: 0 });
+  //   }
+  // });
+
   return (
     <Layout>
       <div
@@ -31,8 +49,8 @@ export default function SingleSongPage({ data: { Song } }) {
           active: isActiveScroll,
         })}
       >
-        <header>
-          <h1 className="font-bold text-6xl mb-2">{Song.label}</h1>
+        <header id="top">
+          <h1 className="font-bold text-5xl mb-2">{Song.label}</h1>
           <ul className="list--inline song--meta">
             <li>
               Tempo: <span className="font-bold">{Song.tempo}</span>
@@ -41,8 +59,8 @@ export default function SingleSongPage({ data: { Song } }) {
               Writer: <span className="font-bold">{Song.writer}</span>
             </li>
             <li>
-              Time:{' '}
-              <span className="font-bold">{Song.songtimesignature.time}</span>
+              Time:
+              <span className="font-bold">{Song.songtimesignature?.time}</span>
             </li>
           </ul>
         </header>
@@ -64,6 +82,7 @@ export default function SingleSongPage({ data: { Song } }) {
               <button
                 type="button"
                 className="border p-2 w-full mb-0 lg:mb-4 rounded black dark:white dark"
+                onClick={() => scrollTo()}
               >
                 Start
               </button>
@@ -74,21 +93,26 @@ export default function SingleSongPage({ data: { Song } }) {
                 Pause
               </button>
               <button
+                // href="#top"
                 type="button"
                 className="border p-2 w-full mb-0 lg:mb-4 rounded black dark:white dark"
+                onClick={() => scroll.scrollToTop()}
               >
-                Stop
+                Back to Top
               </button>
               <button
                 type="button"
                 className="border p-2 mb-0 lg:mb-4 w-full rounded black dark:white dark"
                 onClick={() => navigate(-1)}
               >
-                Go Back
+                &larr; Go Back
               </button>
             </div>
           </aside>
         </div>
+      </div>
+      <div id="songEnd" className="song--end">
+        &nbsp;
       </div>
     </Layout>
   );
