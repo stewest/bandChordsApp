@@ -47,7 +47,7 @@ export default function SingleSongPage({ data: { Song } }) {
           </ul>
         </header>
         <div className="content--wrapper">
-          <main>
+          <main className="song--main">
             <div className="active-focus">&nbsp;</div>
             {songLines.map((line) => (
               <div key={line._key} className="song--line">
@@ -59,29 +59,29 @@ export default function SingleSongPage({ data: { Song } }) {
               </div>
             ))}
           </main>
-          <aside className="song--controls">
-            <div>
+          <aside className="song--controls bg-black pt-4 lg:pt-0">
+            <div className="song--controls grid grid-cols-2 lg:grid-cols-1 gap-2">
               <button
                 type="button"
-                className="border p-2 mb-4 w-full rounded black dark:white dark"
+                className="border p-2 w-full mb-0 lg:mb-4 rounded black dark:white dark"
               >
                 Start
               </button>
               <button
                 type="button"
-                className="border p-2 w-full mb-4 rounded black dark:white dark"
+                className="border p-2 w-full mb-0 lg:mb-4 rounded black dark:white dark"
               >
                 Pause
               </button>
               <button
                 type="button"
-                className="border p-2 w-full mb-4 rounded black dark:white dark"
+                className="border p-2 w-full mb-0 lg:mb-4 rounded black dark:white dark"
               >
                 Stop
               </button>
               <button
                 type="button"
-                className="border p-2 mb-4 w-full rounded black dark:white dark"
+                className="border p-2 mb-0 lg:mb-4 w-full rounded black dark:white dark"
                 onClick={() => navigate(-1)}
               >
                 Go Back

@@ -14,7 +14,7 @@ const IndexPage = ({ data }) => {
         <title>Home Page</title>
         <h1 className="text-6xl">BandChords</h1>
 
-        <div className="wrapper w-full grid grid-cols-2 gap-12">
+        <div className="wrapper w-full grid sm:grid-cols-1 lg:grid-cols-2 gap-12">
           <SongList songs={songs} />
 
           <SetList sets={sets} />

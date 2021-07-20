@@ -23,10 +23,14 @@ body {
 }
 
 .content--wrapper main {
-  flex: 0 1 80%;
+  flex: 0 1 100%;
 
   &:focus {
     outline: none;
+  }
+
+  @media screen and (min-width: 1025px) {
+    flex: 0 1 80%;
   }
 }
 
@@ -36,19 +40,31 @@ body {
   display: block;
 }
 
-.theme-toggle {
-  position: fixed;
-  right: 26px;
-  top: 1%;
-  width: 200px;
+.theme-switcher{
+  &.light {
+    @apply pl-1;
+    @apply pr-8;
+    @apply bg-gray-300;
+  }
 }
 
 .content--wrapper aside.song--controls {
-  flex: 0 1 20%;
+  flex: 0 1 100%;
   position: fixed;
-  top: 10%;
-  right: 26px;
-  width: 200px;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  left: 0;
+
+  @media screen and (min-width: 1025px) {
+    flex: 0 1 20%;
+    position: fixed;
+    top: 10%;
+    right: 26px;
+    width: 200px;
+    left: unset;
+    bottom: unset;
+  }
 }
 
 .content--wrapper .song--controls button,
