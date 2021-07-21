@@ -1,67 +1,50 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { graphql, navigate } from 'gatsby';
 import classNames from 'classnames';
-import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import { animateScroll as scroll, scroller } from 'react-scroll';
+import Metronome from '../components/Metronome';
 import Layout from '../layout/Layout';
 
 export default function SingleSongPage({ data: { Song } }) {
   const songObj = Song.songContent;
   const songLines = [];
 
-  const fromWindowTop = 0;
-  const [isActiveScroll, setisActiveScroll] = useState(true);
-
   for (const value of Object.values(songObj)) {
     songLines.push(value.children[0]);
   }
 
-  useScrollPosition(({ currPos }) => {
-    setisActiveScroll(false);
-
-    // console.log(currPos.y);
-    if (currPos.y <= fromWindowTop) {
-      setisActiveScroll(true);
-    }
-  });
+  const songDuration = Song.songTime ? Song.songTime * 60 * 1000 : 60000;
 
   const scrollTo = () => {
     scroller.scrollTo('songEnd', {
-      duration: 6000,
+      duration: songDuration,
       delay: 0,
-      smooth: 'easeInOutQuart',
+      smooth: 'linear',
+      ignoreCancelEvents: false,
     });
   };
 
-  // const [scrollStatus, setScrollStatus] = useState(false);
-  // useEffect(() => {
-  //   const target = document.querySelector('.song--end');
-
-  //   if (scrollStatus) {
-  //     window.scroll({ top: 0, left: 0 });
-  //   }
-  // });
-
   return (
     <Layout>
-      <div
-        className={classNames('song--main-wrapper text-2xl', {
-          active: isActiveScroll,
-        })}
-      >
+      <div className={classNames('song--main-wrapper text-2xl')}>
         <header id="top">
           <h1 className="font-bold text-5xl mb-2">{Song.label}</h1>
           <ul className="list--inline song--meta">
             <li>
-              Tempo: <span className="font-bold">{Song.tempo}</span>
+              Tempo: <span className="font-bold"> {Song.tempo}</span>
             </li>
             <li>
-              Writer: <span className="font-bold">{Song.writer}</span>
+              Writer: <span className="font-bold"> {Song.writer}</span>
             </li>
-            <li>
-              Time:
-              <span className="font-bold">{Song.songtimesignature?.time}</span>
-            </li>
+            {Song.songtimesignature && (
+              <li>
+                Time:
+                <span className="font-bold">
+                  {' '}
+                  {Song.songtimesignature.time}
+                </span>
+              </li>
+            )}
           </ul>
         </header>
         <div className="content--wrapper">
@@ -77,8 +60,9 @@ export default function SingleSongPage({ data: { Song } }) {
               </div>
             ))}
           </main>
-          <aside className="song--controls bg-black pt-4 lg:pt-0">
+          <aside className="song--controls bg-white dark:bg-black pt-4 lg:pt-0">
             <div className="song--controls grid grid-cols-2 lg:grid-cols-1 gap-2">
+              <Metronome bpm={Song.tempo} />
               <button
                 type="button"
                 className="border p-2 w-full mb-0 lg:mb-4 rounded black dark:white dark"
@@ -105,7 +89,7 @@ export default function SingleSongPage({ data: { Song } }) {
                 className="border p-2 mb-0 lg:mb-4 w-full rounded black dark:white dark"
                 onClick={() => navigate(-1)}
               >
-                &larr; Go Back
+                <span className="text-4xl">&larr;</span> Home
               </button>
             </div>
           </aside>
@@ -126,6 +110,7 @@ export const query = graphql`
       name
       id
       tempo
+      songTime
       writer
       songtimesignature {
         time

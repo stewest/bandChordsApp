@@ -12,6 +12,11 @@ body {
   }
 }
 
+a,
+button {
+  color: #008bd0;
+}
+
 .content--wrapper {
   display: flex;
   flex-wrap: nowrap;
@@ -72,6 +77,10 @@ body {
   display: block;
   box-shadow: 1px 2px 2px #777;
   cursor: pointer;
+}
+
+.beat {
+  background-color: #21cc12;
 }
 
 .song--main-wrapper {

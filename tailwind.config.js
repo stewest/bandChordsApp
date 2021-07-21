@@ -12,7 +12,17 @@ module.exports = {
         'Monaco',
       ],
     },
-    extend: {},
+    extend: {
+      keyframes: {
+        pulsebpm: {
+          '0%, 100%': { backgroundColor: '#21cc12' },
+          '50%': { backgroundColor: '#111' },
+        },
+      },
+      animation: {
+        pulsebpm: 'pulsebpm linear infinite 1s',
+      },
+    },
   },
   variants: {
     extend: {},
