@@ -11,7 +11,7 @@ import {
   SvgStartScroll,
 } from '../components/icons';
 
-export default function SingleSongPage({ data: { Song } }) {
+export default function SingleSongPage({ data: { Song, AllKeys } }) {
   const songObj = Song.songContent;
   const songLines = [];
 
@@ -37,10 +37,32 @@ export default function SingleSongPage({ data: { Song } }) {
     setScrollStatus(!scrollStatus);
   };
 
-  const formatSongLines = (lineContent) => {
-    if (lineContent) {
-      return lineContent;
+  const ChordLine = ({ chordChars }) => (
+    <span className="chords text-indigo-300">{chordChars}</span>
+  );
+
+  const WordLine = ({ wordChars }) => (
+    <span className="words">{wordChars}</span>
+  );
+
+  const allKeys = AllKeys.keys;
+  const keyLinesArray = [];
+
+  for (const value of Object.values(allKeys)) {
+    keyLinesArray.push(value.keyName);
+  }
+
+  const formatSongLines = (lineContent, marks) => {
+    if (lineContent && marks[0] === 'strong') {
+      const substrings = keyLinesArray;
+      const str = lineContent;
+
+      if (substrings.some((v) => str.includes(v))) {
+        return ChordLine({ chordChars: str });
+      }
+      return WordLine({ wordChars: str });
     }
+    return WordLine({ wordChars: lineContent });
   };
 
   return (
@@ -51,17 +73,19 @@ export default function SingleSongPage({ data: { Song } }) {
           <h1 className="font-bold text-5xl mb-2">{Song.label}</h1>
           <ul className="list--inline song--meta pb-8 text-gray-400">
             <li>
-              Tempo: <span className="font-bold"> {Song.tempo}</span>
+              Tempo: <span className="font-bold">{Song.tempo}</span>
             </li>
             <li>
-              Writer: <span className="font-bold"> {Song.writer}</span>
+              Writer: <span className="font-bold">{Song.writer}</span>
+            </li>
+            <li>
+              Key: <span className="font-bold">{Song.key.keyName}</span>
             </li>
             {Song.songtimesignature && (
               <li>
                 Time:
                 <span className="font-bold">
-                  {' '}
-                  {Song.songtimesignature.time}
+                  &nbsp;{Song.songtimesignature.time}
                 </span>
               </li>
             )}
@@ -73,9 +97,9 @@ export default function SingleSongPage({ data: { Song } }) {
             {songLines.map((line) => (
               <div key={line._key} className="song--line">
                 {line.marks ? (
-                  <span className={line.marks}>{`${formatSongLines(
-                    line.text
-                  )}`}</span>
+                  <span className={line.marks}>
+                    {formatSongLines(line.text, line.marks)}
+                  </span>
                 ) : (
                   formatSongLines(line.text)
                 )}
@@ -98,7 +122,6 @@ export default function SingleSongPage({ data: { Song } }) {
                 Pause
               </button>
               <button
-                // href="#top"
                 type="button"
                 className="btn"
                 onClick={() => scroll.scrollToTop()}
@@ -127,12 +150,15 @@ export default function SingleSongPage({ data: { Song } }) {
 
 // This needs to be dynamic based on the slug passed in via context in gatsby-node.js
 export const query = graphql`
-  query ($slug: String!) {
+  query Song($slug: String!) {
     Song: sanitySong(slug: { current: { eq: $slug } }) {
       label: name
       name
       id
       tempo
+      key {
+        keyName
+      }
       songTime
       writer
       songtimesignature {
@@ -145,6 +171,11 @@ export const query = graphql`
           _type
           _key
         }
+      }
+    }
+    AllKeys: allSanityKey {
+      keys: nodes {
+        keyName
       }
     }
   }
