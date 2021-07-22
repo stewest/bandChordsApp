@@ -11,9 +11,9 @@ export default function setPage({ data: { set } }) {
     <Layout>
       <div className="set--main-wrapper text-2xl">
         <header>
-          <h1 className="font-bold text-6xl mb-8">{set.setListName}</h1>
-          <ul className="list--inline set--meta">
-            <li>
+          <h1 className="font-bold text-6xl mb-6">{set.setListName}</h1>
+          <ul className="list--inline set--meta pb-4 text-gray-400">
+            <li className="text-gray-400">
               Date: <span className="font-bold">{set.setlistdate}</span>
             </li>
           </ul>

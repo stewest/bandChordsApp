@@ -42,7 +42,7 @@ export default function SingleSongPage({ data: { Song } }) {
       <div className={classNames('song--main-wrapper text-2xl')}>
         <header id="top">
           <h1 className="font-bold text-5xl mb-2">{Song.label}</h1>
-          <ul className="list--inline song--meta">
+          <ul className="list--inline song--meta pb-8 text-gray-400">
             <li>
               Tempo: <span className="font-bold"> {Song.tempo}</span>
             </li>

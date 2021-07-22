@@ -38,7 +38,7 @@ export default function SetLists({ sets }) {
 
   return (
     <div className="setlist mb-4">
-      <h2>SongLists</h2>
+      <h2 className="pb-1 text-gray-400">SongLists</h2>
 
       <Select
         isClearable
