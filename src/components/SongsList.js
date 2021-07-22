@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import Select from 'react-select';
 import compareName from '../utils/functions';
+import { SvgMusicNotes } from './icons';
 
 function SingleSong({ song }) {
   return (
-    <li className="list-disc">
+    <li className="list-none mb-1">
+      <SvgMusicNotes />
       <Link to={`/song/${song.slug.current}`}>
         <span className="mark">{song.name}</span>
       </Link>
@@ -36,7 +38,7 @@ export default function SongList({ songs }) {
   };
 
   return (
-    <div className="songlist">
+    <div className="songlist mb-4">
       <h2>SongLists</h2>
 
       <Select
@@ -52,7 +54,7 @@ export default function SongList({ songs }) {
         }}
       />
 
-      <ul className="list mt-4 ml-4">
+      <ul className="list mt-8 ml-4">
         {filteredList.map((song) => (
           <SingleSong key={song.id} song={song} />
         ))}

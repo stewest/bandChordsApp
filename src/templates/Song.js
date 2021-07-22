@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, navigate } from 'gatsby';
 import classNames from 'classnames';
 import { animateScroll as scroll, scroller } from 'react-scroll';
 import Metronome from '../components/Metronome';
 import Layout from '../layout/Layout';
+import {
+  SvgLeftArrow,
+  SvgUpArrow,
+  SvgPause,
+  SvgStartScroll,
+} from '../components/icons';
 
 export default function SingleSongPage({ data: { Song } }) {
   const songObj = Song.songContent;
@@ -15,6 +21,8 @@ export default function SingleSongPage({ data: { Song } }) {
 
   const songDuration = Song.songTime ? Song.songTime * 60 * 1000 : 60000;
 
+  const [scrollStatus, setScrollStatus] = useState(false);
+
   const scrollTo = () => {
     scroller.scrollTo('songEnd', {
       duration: songDuration,
@@ -22,6 +30,11 @@ export default function SingleSongPage({ data: { Song } }) {
       smooth: 'linear',
       ignoreCancelEvents: false,
     });
+  };
+
+  const handleStartClick = () => {
+    scrollTo();
+    setScrollStatus(!scrollStatus);
   };
 
   return (
@@ -65,31 +78,32 @@ export default function SingleSongPage({ data: { Song } }) {
               <Metronome bpm={Song.tempo} />
               <button
                 type="button"
-                className="border p-2 w-full mb-0 lg:mb-4 rounded black dark:white dark"
-                onClick={() => scrollTo()}
+                className="btn"
+                onClick={() => handleStartClick()}
               >
+                <SvgStartScroll />
                 Start
               </button>
-              <button
-                type="button"
-                className="border p-2 w-full mb-0 lg:mb-4 rounded black dark:white dark"
-              >
+              <button type="button" className="btn">
+                <SvgPause />
                 Pause
               </button>
               <button
                 // href="#top"
                 type="button"
-                className="border p-2 w-full mb-0 lg:mb-4 rounded black dark:white dark"
+                className="btn"
                 onClick={() => scroll.scrollToTop()}
               >
-                Back to Top
+                <SvgUpArrow />
+                Top
               </button>
               <button
                 type="button"
-                className="border p-2 mb-0 lg:mb-4 w-full rounded black dark:white dark"
+                className="btn"
                 onClick={() => navigate(-1)}
               >
-                <span className="text-4xl">&larr;</span> Home
+                <SvgLeftArrow />
+                Home
               </button>
             </div>
           </aside>

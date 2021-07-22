@@ -12,7 +12,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <main>
         <title>Home Page</title>
-        <h1 className="text-6xl">BandChords</h1>
+        <h1 className="text-6xl mb-8">BandChords</h1>
 
         <div className="wrapper w-full grid sm:grid-cols-1 lg:grid-cols-2 gap-12">
           <SongList songs={songs} />

@@ -45,7 +45,7 @@ button {
   display: block;
 }
 
-.theme-switcher{
+.theme-switcher {
   &.light {
     @apply pl-1;
     @apply pr-8;
@@ -72,15 +72,17 @@ button {
   }
 }
 
-.content--wrapper .song--controls button,
-.content--wrapper .song--controls a {
+.content--wrapper .song--controls button.btn,
+.content--wrapper .song--controls a.btn {
   display: block;
-  box-shadow: 1px 2px 2px #777;
   cursor: pointer;
+
+  @apply border p-2 w-full mb-0 lg:mb-4 rounded-md shadow text-black transition-colors border-gray-500 dark:text-blue-500 dark:bg-gray-900 dark:hover:bg-gray-800;
 }
 
 .beat {
   background-color: #21cc12;
+  color: #000;
 }
 
 .song--main-wrapper {

@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import Select from 'react-select';
+import { SvgPaper } from './icons';
 
 function SetListItem({ setItem }) {
   return (
-    <li className="list-disc">
+    <li className="list-none mb-1">
+      <SvgPaper />
       <Link to={`/setlist/${setItem.slug.current}`}>
         <span className="mark">{setItem.name}</span>
       </Link>
@@ -35,7 +37,7 @@ export default function SetLists({ sets }) {
   };
 
   return (
-    <div className="setlist">
+    <div className="setlist mb-4">
       <h2>SongLists</h2>
 
       <Select
@@ -51,7 +53,7 @@ export default function SetLists({ sets }) {
         }}
       />
 
-      <ul className="list mt-4 ml-4">
+      <ul className="list mt-8 ml-4">
         {filteredSetList.map((setItem) => (
           <SetListItem key={setItem.id} setItem={setItem} />
         ))}
