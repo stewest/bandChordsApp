@@ -14,7 +14,7 @@ body {
 
 a,
 button {
-  color: #008bd0;
+  color: #2fa9e6;
 }
 
 .content--wrapper {
@@ -77,7 +77,7 @@ button {
   display: block;
   cursor: pointer;
 
-  @apply border p-2 w-full mb-0 lg:mb-4 rounded-md shadow text-black transition-colors border-gray-500 dark:text-blue-500 dark:bg-gray-900 dark:hover:bg-gray-800;
+  @apply border p-2 w-full mb-0 lg:mb-4 rounded-md shadow text-black transition-colors border-gray-500 dark:text-blue-500 dark:bg-gray-900 dark:hover:bg-gray-800 dark:hover:text-blue-300 hover:text-blue-300;
 }
 
 .beat {

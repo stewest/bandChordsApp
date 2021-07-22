@@ -7,7 +7,10 @@ function SetListItem({ setItem }) {
   return (
     <li className="list-none mb-1">
       <SvgPaper />
-      <Link to={`/setlist/${setItem.slug.current}`}>
+      <Link
+        to={`/setlist/${setItem.slug.current}`}
+        className="hover:text-blue-300 transition-colors"
+      >
         <span className="mark">{setItem.name}</span>
       </Link>
     </li>

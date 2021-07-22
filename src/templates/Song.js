@@ -37,10 +37,17 @@ export default function SingleSongPage({ data: { Song } }) {
     setScrollStatus(!scrollStatus);
   };
 
+  const formatSongLines = (lineContent) => {
+    if (lineContent) {
+      return lineContent;
+    }
+  };
+
   return (
     <Layout>
       <div className={classNames('song--main-wrapper text-2xl')}>
         <header id="top">
+          <title>Band Chords | {Song.label}</title>
           <h1 className="font-bold text-5xl mb-2">{Song.label}</h1>
           <ul className="list--inline song--meta pb-8 text-gray-400">
             <li>
@@ -66,9 +73,11 @@ export default function SingleSongPage({ data: { Song } }) {
             {songLines.map((line) => (
               <div key={line._key} className="song--line">
                 {line.marks ? (
-                  <span className={line.marks}>{`${line.text}`}</span>
+                  <span className={line.marks}>{`${formatSongLines(
+                    line.text
+                  )}`}</span>
                 ) : (
-                  line.text
+                  formatSongLines(line.text)
                 )}
               </div>
             ))}

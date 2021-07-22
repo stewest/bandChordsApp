@@ -3,6 +3,8 @@ import { graphql } from 'gatsby';
 import SongList from '../components/SongsList';
 import SetList from '../components/SetList';
 import Layout from '../layout/Layout';
+import Footer from '../components/Footer';
+import icon from '../images/icon.png';
 
 const IndexPage = ({ data }) => {
   const songs = data.songs.nodes;
@@ -11,8 +13,15 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <main>
-        <title>Home Page</title>
-        <h1 className="text-6xl mb-8">BandChords</h1>
+        <title>Band Chords | Home</title>
+        <h1 className="text-6xl mb-8">
+          <img
+            className="logo--band w-12 mr-4 inline"
+            src={icon}
+            alt="Band Chords logo"
+          />
+          BandChords
+        </h1>
 
         <div className="wrapper w-full grid sm:grid-cols-1 lg:grid-cols-2 gap-12">
           <SongList songs={songs} />
@@ -20,6 +29,7 @@ const IndexPage = ({ data }) => {
           <SetList sets={sets} />
         </div>
       </main>
+      <Footer />
     </Layout>
   );
 };

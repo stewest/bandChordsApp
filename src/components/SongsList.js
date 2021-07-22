@@ -8,7 +8,10 @@ function SingleSong({ song }) {
   return (
     <li className="list-none mb-1">
       <SvgMusicNotes />
-      <Link to={`/song/${song.slug.current}`}>
+      <Link
+        to={`/song/${song.slug.current}`}
+        className="hover:text-blue-300 transition-colors"
+      >
         <span className="mark">{song.name}</span>
       </Link>
     </li>

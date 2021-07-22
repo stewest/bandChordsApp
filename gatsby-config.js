@@ -42,5 +42,17 @@ module.exports = {
         headerHeight: 0,
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'bandChordsApp',
+        short_name: 'bandChordsApp',
+        start_url: '/',
+        background_color: '#f7f0eb',
+        theme_color: '#2fa9e6',
+        display: 'standalone',
+        icon: 'src/images/icon.png',
+      },
+    },
   ],
 };

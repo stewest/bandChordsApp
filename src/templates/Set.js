@@ -11,6 +11,7 @@ export default function setPage({ data: { set } }) {
     <Layout>
       <div className="set--main-wrapper text-2xl">
         <header>
+          <title>Band Chords | {set.setListName}</title>
           <h1 className="font-bold text-6xl mb-6">{set.setListName}</h1>
           <ul className="list--inline set--meta pb-4 text-gray-400">
             <li className="text-gray-400">
@@ -24,7 +25,12 @@ export default function setPage({ data: { set } }) {
               {setObj.map((song) => (
                 <li key={song.id} className="list-none mb-1">
                   <SvgMusicNotes />
-                  <Link to={`/song/${song.slug.current}`}>{song.name}</Link>
+                  <Link
+                    to={`/song/${song.slug.current}`}
+                    className="hover:text-blue-300 transition-colors"
+                  >
+                    {song.name}
+                  </Link>
                 </li>
               ))}
             </ul>
