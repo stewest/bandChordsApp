@@ -14,9 +14,9 @@ const IndexPage = ({ data }) => {
     <Layout>
       <main>
         <title>Band Chords | Home</title>
-        <h1 className="text-6xl mb-8">
+        <h1 className="text-6xl mb-8 font-bold">
           <img
-            className="logo--band w-12 mr-4 inline"
+            className="logo--band w-16 mr-4 inline"
             src={icon}
             alt="Band Chords logo"
           />

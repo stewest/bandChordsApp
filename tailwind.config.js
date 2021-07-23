@@ -1,16 +1,12 @@
 module.exports = {
-  purge: [],
+  // purge: [],
+  purge: ['./src/**/*.js'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     fontFamily: {
-      mono: [
-        '"Courier"',
-        '"Courier New"',
-        'monospace',
-        'ui-monospace',
-        'Menlo',
-        'Monaco',
-      ],
+      mono: ['"Roboto Mono"', '"Courier"', 'Menlo'],
+      sans: ['"Roboto"', '"Helvetica Neue"', 'Arial', 'sans-serif'],
+      chords: ['"Courier"', '"Courier New"', 'Menlo', 'Monaco'],
     },
     extend: {
       keyframes: {

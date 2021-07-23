@@ -77,7 +77,7 @@ button {
   display: block;
   cursor: pointer;
 
-  @apply border p-2 w-full mb-0 lg:mb-4 rounded-md shadow text-black transition-colors border-gray-500 dark:text-blue-500 dark:bg-gray-900 dark:hover:bg-gray-800 dark:hover:text-blue-300 hover:text-blue-300;
+  @apply border p-2 w-full mb-0 lg:mb-4 rounded-md shadow text-black transition-colors border-gray-500 dark:text-blue-500 dark:bg-gray-900 dark:hover:bg-gray-800 dark:hover:text-blue-300 hover:text-blue-300 font-sans;
 }
 
 .beat {
@@ -108,24 +108,30 @@ button {
 .song--line {
   margin-bottom: 8px;
   margin-right: 5%;
-  font-weight: 400;
-}
 
-.song--line.active {
-  outline: 1px solid violet;
-  outline-offset: 5px;
-}
+  .em {
+    @apply font-thin italic text-lg mt-6 text-green-600;
+  }
 
-.em {
-  font-style: italic;
-  font-weight: 100;
+  &:first-of-type .em {
+    @apply mt-0;
+  }
+
+  &.active {
+    outline: 1px solid violet;
+    outline-offset: 5px;
+  }
 }
 
 .strong {
-  font-weight: 700;
+  @apply font-bold;
 }
 
 .list--inline li {
   display: inline-block;
   margin-right: 2rem;
+}
+
+.song--end {
+  padding-bottom: 33vh;
 }

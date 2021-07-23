@@ -21,6 +21,9 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-web-font-loader',
+    },
+    {
       resolve: 'gatsby-plugin-sass',
       options: {
         postCssPlugins: [
@@ -33,8 +36,6 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-page-progress',
       options: {
-        // includePaths: ["/", { regex: "^/blog" }],
-        // excludePaths: ["/blog/beep-beep-lettuce"],
         height: 3,
         prependToBody: false,
         color: `#663399`,

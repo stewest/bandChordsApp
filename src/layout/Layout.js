@@ -8,7 +8,7 @@ export default function Layout({ children }) {
   return (
     <>
       <BodyClassName
-        className={classNames('font-mono text-xl p-4 lg:p-8', {
+        className={classNames('font-mono font-light text-xl p-4 lg:p-8', {
           dark: !!themeOption,
         })}
       />

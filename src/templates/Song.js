@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { animateScroll as scroll, scroller } from 'react-scroll';
 import Metronome from '../components/Metronome';
 import Layout from '../layout/Layout';
+
 import {
   SvgLeftArrow,
   SvgUpArrow,
@@ -12,6 +13,7 @@ import {
 } from '../components/icons';
 
 export default function SingleSongPage({ data: { Song, AllKeys } }) {
+  const activeScroll = false;
   const songObj = Song.songContent;
   const songLines = [];
 
@@ -38,11 +40,11 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
   };
 
   const ChordLine = ({ chordChars }) => (
-    <span className="chords text-indigo-300">{chordChars}</span>
+    <div className="chords text-indigo-300 mt-6">{chordChars}</div>
   );
 
   const WordLine = ({ wordChars }) => (
-    <span className="words">{wordChars}</span>
+    <div className="words font-normal">{wordChars}</div>
   );
 
   const allKeys = AllKeys.keys;
@@ -72,13 +74,13 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
           <title>Band Chords | {Song.label}</title>
           <h1 className="font-bold text-5xl mb-2">{Song.label}</h1>
           <ul className="list--inline song--meta pb-8 text-gray-400">
-            <li>
+            <li className="font-light">
               Tempo: <span className="font-bold">{Song.tempo}</span>
             </li>
-            <li>
+            <li className="font-light">
               Writer: <span className="font-bold">{Song.writer}</span>
             </li>
-            <li>
+            <li className="font-light">
               Key: <span className="font-bold">{Song.key.keyName}</span>
             </li>
             {Song.songtimesignature && (
@@ -91,15 +93,16 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
             )}
           </ul>
         </header>
-        <div className="content--wrapper">
+        <div className="content--wrapper font-chords">
           <main className="song--main">
-            <div className="active-focus">&nbsp;</div>
+            {activeScroll && <div className="active-focus">&nbsp;</div>}
+
             {songLines.map((line) => (
               <div key={line._key} className="song--line">
                 {line.marks ? (
-                  <span className={line.marks}>
+                  <div className={line.marks}>
                     {formatSongLines(line.text, line.marks)}
-                  </span>
+                  </div>
                 ) : (
                   formatSongLines(line.text)
                 )}
@@ -165,11 +168,16 @@ export const query = graphql`
         time
       }
       songContent {
+        _key
+        _type
+        style
+        list
+        _rawChildren
         children {
-          text
-          marks
-          _type
           _key
+          _type
+          marks
+          text
         }
       }
     }
