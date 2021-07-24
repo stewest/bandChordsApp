@@ -19,6 +19,8 @@ const IndexPage = ({ data }) => {
             className="logo--band w-8 md:w-16 mr-4 inline"
             src={icon}
             alt="Band Chords logo"
+            width="128px"
+            height="128px"
           />
           BandChords
         </h1>

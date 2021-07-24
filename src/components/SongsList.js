@@ -38,13 +38,22 @@ export default function SongList({ songs }) {
       backgroundColor: `#333`,
       color: '#fff',
     }),
+    placeholder: (defaultStyles) => ({
+      ...defaultStyles,
+      color: '#000',
+    }),
   };
 
   return (
     <div className="songlist mb-4">
-      <h2 className="pb-1 text-gray-400">SongLists</h2>
+      <h2 className="pb-1 text-gray-400">
+        <label htmlFor="react-select-2-input" aria-label="react-select-2-input">
+          SongLists
+        </label>
+      </h2>
 
       <Select
+        aria-labelledby="react-select-2-input"
         isClearable
         placeholder="Find Song..."
         options={songsSorted}

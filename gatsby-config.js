@@ -9,11 +9,13 @@ const token = process.env.SANITY_TOKEN;
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://bandchordsapp.gatsbyjs.io',
-    title: 'bandChordsApp',
+    title: 'Band Chords App',
+    description: 'A chords App for bands.',
   },
   plugins: [
     {
       resolve: 'gatsby-source-sanity',
+      watchMode: true,
       options: {
         projectId,
         dataset,
@@ -23,6 +25,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-web-font-loader',
     },
+    `gatsby-plugin-react-helmet`,
     {
       resolve: 'gatsby-plugin-sass',
       options: {
