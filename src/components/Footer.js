@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="fixed bottom-4 z-10 bg-white dark:bg-black">
+    <footer className="fixed bottom-4 z-10 bg-white dark:bg-black hidden md:block">
       <div className="text-xs">
         Band Icon made by&nbsp;
         <a

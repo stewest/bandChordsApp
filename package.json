@@ -19,7 +19,6 @@
     "@fontsource/roboto": "^4.5.0",
     "@fontsource/roboto-mono": "^4.5.0",
     "@n8tb1t/use-scroll-position": "^2.0.3",
-
     "autoprefixer": "^10.3.1",
     "classnames": "^2.3.1",
     "dotenv": "^10.0.0",

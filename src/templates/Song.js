@@ -72,8 +72,8 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
       <div className={classNames('song--main-wrapper text-2xl')}>
         <header id="top">
           <title>Band Chords | {Song.label}</title>
-          <h1 className="font-bold text-5xl mb-2">{Song.label}</h1>
-          <ul className="list--inline song--meta pb-8 text-gray-400">
+          <h1 className="font-bold text-2xl md:text-5xl mb-2">{Song.label}</h1>
+          <ul className="list--inline song--meta pb-8 text-gray-400 text-base md:text-2xl">
             <li className="font-light">
               Tempo: <span className="font-bold">{Song.tempo}</span>
             </li>
