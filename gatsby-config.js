@@ -58,5 +58,11 @@ module.exports = {
         icon: 'src/images/icon.png',
       },
     },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/`, `/setlist/*`, `/song/*`],
+      },
+    },
   ],
 };
