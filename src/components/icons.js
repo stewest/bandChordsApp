@@ -4,7 +4,7 @@ export function SvgLeftArrow() {
   return (
     <span>
       <svg
-        className="h-6 w-6 inline mr-6 -mt-1"
+        className="h-6 w-6 inline lg:block xl:inline m-auto xl:mr-4 -mt-1"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -24,7 +24,7 @@ export function SvgUpArrow() {
   return (
     <span>
       <svg
-        className="h-6 w-6 inline mr-6 -mt-1"
+        className="h-6 w-6 inline lg:block xl:inline m-auto xl:mr-4 -mt-1"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -44,7 +44,7 @@ export function SvgPause() {
   return (
     <span>
       <svg
-        className="h-6 w-6 inline mr-6 -mt-1"
+        className="h-6 w-6 inline lg:block xl:inline m-auto xl:mr-4 -mt-1"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -64,7 +64,7 @@ export function SvgStartScroll() {
   return (
     <span>
       <svg
-        className="h-6 w-6 inline mr-6 -mt-1"
+        className="h-6 w-6 inline lg:block xl:inline m-auto xl:mr-4 -mt-1"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -84,7 +84,7 @@ export function SvgMusicNotes() {
   return (
     <span>
       <svg
-        className="h-6 w-6 inline mr-6 -mt-1"
+        className="h-6 w-6 inline mr-4 -mt-1"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -104,7 +104,7 @@ export function SvgLightning() {
   return (
     <span>
       <svg
-        className="h-6 w-6 inline mr-6 -mt-1"
+        className="h-6 w-6 inline lg:block xl:inline m-auto xl:mr-2 -mt-1"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -124,7 +124,7 @@ export function SvgPaper() {
   return (
     <span>
       <svg
-        className="h-6 w-6 inline mr-6 -mt-1"
+        className="h-6 w-6 inline mr-4 -mt-1"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"

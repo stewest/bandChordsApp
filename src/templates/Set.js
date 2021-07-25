@@ -52,7 +52,7 @@ export default function setPage({ data: { set } }) {
                 onClick={() => navigate(-1)}
               >
                 <SvgLeftArrow />
-                Home
+                Back
               </button>
             </div>
           </aside>

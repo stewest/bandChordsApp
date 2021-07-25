@@ -110,7 +110,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
             ))}
           </main>
           <aside className="song--controls bg-white dark:bg-black pt-4 lg:pt-0">
-            <div className="song--controls grid grid-cols-2 lg:grid-cols-1 gap-2">
+            <div className="song--controls grid grid-cols-3 md:grid-cols-5 lg:grid-cols-1 gap-2">
               <Metronome bpm={Song.tempo} />
               <button
                 type="button"
@@ -138,7 +138,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
                 onClick={() => navigate(-1)}
               >
                 <SvgLeftArrow />
-                Home
+                Back
               </button>
             </div>
           </aside>
