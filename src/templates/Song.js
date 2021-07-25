@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { graphql, navigate } from 'gatsby';
 import classNames from 'classnames';
 import { animateScroll as scroll, scroller } from 'react-scroll';
+import TempoInput from '../components/TempoInput';
 import Metronome from '../components/Metronome';
 import Layout from '../layout/Layout';
 
@@ -67,6 +68,8 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
     return WordLine({ wordChars: lineContent });
   };
 
+  const [currentTempo, setCurrentTempo] = useState(Song.tempo);
+
   return (
     <Layout>
       <div className={classNames('song--main-wrapper text-2xl')}>
@@ -110,8 +113,9 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
             ))}
           </main>
           <aside className="song--controls bg-white dark:bg-black pt-4 lg:pt-0">
-            <div className="song--controls grid grid-cols-3 md:grid-cols-5 lg:grid-cols-1 gap-2">
-              <Metronome bpm={Song.tempo} />
+            <div className="song--controls grid grid-cols-3 md:grid-cols-6 lg:grid-cols-1 gap-2">
+              <TempoInput bpm={currentTempo} func={setCurrentTempo} />
+              <Metronome bpm={currentTempo} />
               <button
                 type="button"
                 className="btn"

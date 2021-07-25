@@ -61,7 +61,7 @@ button {
   width: 100%;
   left: 0;
 
-  @media screen and (min-width: 960px) {
+  @media screen and (min-width: 1024px) {
     flex: 0 1 12%;
     top: 10%;
     right: 16px;
@@ -71,7 +71,7 @@ button {
     text-align: center;
   }
 
-  @media screen and (min-width: 1366px) {
+  @media screen and (min-width: 1280px) {
     flex: 0 1 12%;
     right: 26px;
     width: 138px;
@@ -80,11 +80,19 @@ button {
 }
 
 .content--wrapper .song--controls button.btn,
-.content--wrapper .song--controls a.btn {
+.content--wrapper .song--controls a.btn,
+.content--wrapper .song--controls input {
   display: block;
   cursor: pointer;
 
   @apply border p-2 w-full mb-0 lg:mb-4 rounded-md shadow text-black transition-colors border-gray-500 dark:text-blue-500 dark:bg-gray-900 dark:hover:bg-gray-800 dark:hover:text-blue-300 hover:text-blue-300 font-sans text-sm md:text-lg;
+}
+
+.content--wrapper .song--controls input {
+  &::placeholder {
+    font-size: 12px;
+    color: #fff;
+  }
 }
 
 .beat {
