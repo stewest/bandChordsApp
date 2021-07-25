@@ -9,7 +9,7 @@ export default function TempoInput({ bpm, func }) {
     <label
       htmlFor="setTempo"
       aria-label="setTempo"
-      className="text-sm text-center text-blue-300"
+      className="text-xs text-center text-blue-300"
     >
       <span className="hidden lg:block">Set Tempo</span>
       <input
