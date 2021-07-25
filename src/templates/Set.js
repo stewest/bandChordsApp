@@ -10,7 +10,7 @@ export default function setPage({ data: { set } }) {
   return (
     <Layout>
       <div className="set--main-wrapper text-2xl">
-        <header>
+        <div className="header--meta">
           <title>Band Chords | {set.setListName}</title>
           <h1 className="font-bold text-6xl mb-6">{set.setListName}</h1>
           <ul className="list--inline set--meta pb-4 text-gray-400">
@@ -18,7 +18,7 @@ export default function setPage({ data: { set } }) {
               Date: <span className="font-bold">{set.setlistdate}</span>
             </li>
           </ul>
-        </header>
+        </div>
         <div className="content--wrapper mt-6">
           <main>
             <ul className="list p">

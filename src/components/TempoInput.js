@@ -6,15 +6,21 @@ export default function TempoInput({ bpm, func }) {
   };
 
   return (
-    <div>
+    <label
+      htmlFor="setTempo"
+      aria-label="setTempo"
+      className="text-sm text-center text-blue-300"
+    >
+      <span className="hidden lg:block">Set Tempo</span>
       <input
+        id="setTempo"
         type="number"
         value={bpm}
         onChange={(event) => TempoPatch(event.target.value)}
         placeholder="Set Tempo"
         className="text-blue-500 text-center"
       />
-    </div>
+    </label>
   );
 }
 

@@ -16,13 +16,3 @@ import ThemeContextProvider from './src/context/themeContext';
 export const wrapRootElement = ({ element }) => (
   <ThemeContextProvider>{element}</ThemeContextProvider>
 );
-
-export const onServiceWorkerUpdateReady = () => {
-  const answer = window.confirm(
-    `This application has been updated. ` +
-      `Reload to display the latest version?`
-  );
-  if (answer === true) {
-    window.location.reload();
-  }
-};

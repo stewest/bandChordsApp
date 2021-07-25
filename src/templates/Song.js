@@ -73,7 +73,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
   return (
     <Layout>
       <div className={classNames('song--main-wrapper text-2xl')}>
-        <header id="top">
+        <div className="header--meta" id="top">
           <title>Band Chords | {Song.label}</title>
           <h1 className="font-bold text-2xl md:text-5xl mb-2">{Song.label}</h1>
           <ul className="list--inline song--meta pb-8 text-gray-400 text-base md:text-2xl">
@@ -95,7 +95,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
               </li>
             )}
           </ul>
-        </header>
+        </div>
         <div className="content--wrapper font-chords">
           <main className="song--main">
             {activeScroll && <div className="active-focus">&nbsp;</div>}
