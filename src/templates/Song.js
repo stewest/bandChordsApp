@@ -41,7 +41,11 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
   };
 
   const ChordLine = ({ chordChars }) => (
-    <div className="chords text-indigo-300 mt-6">{chordChars}</div>
+    <div className="chords text-indigo-400 mt-6">{chordChars}</div>
+  );
+
+  const SectionLine = ({ sectionChars }) => (
+    <div className="words words-section font-light">{sectionChars}</div>
   );
 
   const WordLine = ({ wordChars }) => (
@@ -56,7 +60,11 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
   }
 
   const formatSongLines = (lineContent, marks) => {
-    if (lineContent && marks[0] === 'strong') {
+    console.log(marks);
+    if (
+      (lineContent && marks[0] === 'chords') ||
+      (lineContent && marks[0] === 'strong')
+    ) {
       const substrings = keyLinesArray;
       const str = lineContent;
 
@@ -64,6 +72,9 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
         return ChordLine({ chordChars: str });
       }
       return WordLine({ wordChars: str });
+    }
+    if (lineContent && marks[0] === 'section') {
+      return SectionLine({ sectionChars: lineContent });
     }
     return WordLine({ wordChars: lineContent });
   };
@@ -94,7 +105,18 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
                 </span>
               </li>
             )}
+            {Song.songpatch && (
+              <li className="block">
+                Patch:{' '}
+                <span className="font-bold text-blue-200">
+                  {Song.songpatch}
+                </span>
+              </li>
+            )}
           </ul>
+          {Song.notes && (
+            <div className="mb-4 text-gray-400">Notes: {Song.notes}</div>
+          )}
         </div>
         <div className="content--wrapper font-chords">
           <main className="song--main">
@@ -171,6 +193,8 @@ export const query = graphql`
       songtimesignature {
         time
       }
+      songpatch
+      notes
       songContent {
         _key
         _type

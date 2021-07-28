@@ -125,10 +125,19 @@ button {
   margin-right: 5%;
 
   .em {
-    @apply font-thin italic text-lg mt-6 text-green-600;
+    @apply font-thin italic text-lg mt-6;
   }
 
-  &:first-of-type .em {
+  .info {
+    @apply font-thin italic text-lg mt-6 text-yellow-300;
+  }
+
+  .section {
+    @apply text-xl mt-6 italic text-green-600;
+  }
+
+  &:first-of-type .em,
+  &:first-of-type .section {
     @apply mt-0;
   }
 
@@ -138,13 +147,18 @@ button {
   }
 }
 
-.strong {
+.strong,
+.chords {
   @apply font-bold;
 }
 
 .list--inline li {
   display: inline-block;
   margin-right: 2rem;
+
+  &.block {
+    display: block;
+  }
 }
 
 .song--end {
