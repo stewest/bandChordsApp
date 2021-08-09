@@ -41,11 +41,11 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
   };
 
   const ChordLine = ({ chordChars }) => (
-    <div className="chords text-indigo-400 mt-6">{chordChars}</div>
+    <div className="text-indigo-400 mt-6">{chordChars}</div>
   );
 
   const SectionLine = ({ sectionChars }) => (
-    <div className="words words-section font-light">{sectionChars}</div>
+    <div className="words-section font-light">{sectionChars}</div>
   );
 
   const WordLine = ({ wordChars }) => (
@@ -60,7 +60,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
   }
 
   const formatSongLines = (lineContent, marks) => {
-    console.log(marks);
+    // console.log(marks);
     if (
       (lineContent && marks[0] === 'chords') ||
       (lineContent && marks[0] === 'strong')
@@ -115,7 +115,9 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
             )}
           </ul>
           {Song.notes && (
-            <div className="mb-4 text-gray-400">Notes: {Song.notes}</div>
+            <div className="mb-4 text-gray-400 text-lg">
+              Notes: {Song.notes}
+            </div>
           )}
         </div>
         <div className="content--wrapper font-chords">

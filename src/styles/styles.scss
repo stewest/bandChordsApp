@@ -164,3 +164,31 @@ button {
 .song--end {
   padding-bottom: 50vh;
 }
+
+.list--grid {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: 1025px) {
+    // grid-template-columns: repeat(2, minmax(65%, 1fr));
+    grid-template-columns: 64% 1fr;
+  }
+}
+
+.songlist,
+.setlist {
+  max-width: 99%;
+}
+
+.songlist .list,
+.set--main-wrapper .list {
+  @media screen and (min-width: 1366px) {
+    column-count: 2;
+  }
+}
+
+.set--main-wrapper .list {
+  @media screen and (min-width: 1366px) {
+    column-gap: 3rem;
+  }
+}

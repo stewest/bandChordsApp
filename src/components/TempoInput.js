@@ -15,7 +15,7 @@ export default function TempoInput({ bpm, func }) {
       <input
         id="setTempo"
         type="number"
-        value={bpm}
+        value={bpm || 100}
         onChange={(event) => TempoPatch(event.target.value)}
         placeholder="Set Tempo"
         className="text-blue-500 text-center"
