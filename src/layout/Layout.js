@@ -5,7 +5,6 @@ import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { ThemeContext } from '../context/themeContext';
 import Header from '../components/Header';
-import 'mil-no-sleep/mil-no-sleep.js';
 
 const Layout = ({ children }) => {
   const { themeOption } = useContext(ThemeContext);
@@ -39,7 +38,6 @@ const Layout = ({ children }) => {
       />
       <Header />
       {children}
-      <mil-no-sleep />
     </>
   );
 };

@@ -64,5 +64,11 @@ module.exports = {
         precachePages: [`/`, `/setlist/*`, `/song/*`],
       },
     },
+    {
+      resolve: `gatsby-plugin-loadable-components-ssr`,
+      options: {
+        useHydrate: true,
+      },
+    },
   ],
 };
