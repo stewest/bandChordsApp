@@ -133,7 +133,7 @@ button {
   }
 
   .section {
-    @apply text-xl mt-6 italic text-green-600;
+    @apply text-xl mt-6 italic text-green-600 font-semibold;
   }
 
   &:first-of-type .em,

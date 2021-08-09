@@ -22,7 +22,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
     songLines.push(value.children[0]);
   }
 
-  const songDuration = Song.songTime ? Song.songTime * 60 * 1000 : 60000;
+  const songDuration = Song.songTime ? Song.songTime * 60 * 1000 : 120000;
 
   const [scrollStatus, setScrollStatus] = useState(false);
 
@@ -45,7 +45,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
   );
 
   const SectionLine = ({ sectionChars }) => (
-    <div className="words-section font-light">{sectionChars}</div>
+    <div className="words-section font-semibold">{sectionChars}</div>
   );
 
   const WordLine = ({ wordChars }) => (
