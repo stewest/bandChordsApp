@@ -2,11 +2,26 @@ import React, { useContext } from 'react';
 import classNames from 'classnames';
 import { useWakeLock } from 'react-screen-wake-lock';
 import { ThemeContext } from '../context/themeContext';
+import { WakeContext } from '../context/wakeContext';
 
 export default function Header() {
   const { themeOption, setThemeOption } = useContext(ThemeContext);
+  const { wakeOption, setWakeOption } = useContext(WakeContext);
+  const { isSupported, released, request, release } = useWakeLock({
+    onRequest: () => setWakeOption(true),
+    onError: () => alert('An error happened 💥'),
+    onRelease: () => setWakeOption(false),
+  });
 
-  const { isSupported, released, request, release } = useWakeLock();
+  const checkWakeOption = () => {
+    if (wakeOption) {
+      request();
+    } else {
+      release();
+    }
+  };
+
+  checkWakeOption();
 
   return (
     <header className="layout--header">

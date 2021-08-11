@@ -12,14 +12,17 @@ import '@fontsource/roboto/700.css';
 import './src/styles/styles.scss';
 
 import ThemeContextProvider from './src/context/themeContext';
+import WakeContextProvider from './src/context/wakeContext';
 
 export const wrapRootElement = ({ element }) => (
-  <ThemeContextProvider>{element}</ThemeContextProvider>
+  <ThemeContextProvider>
+    <WakeContextProvider>{element}</WakeContextProvider>
+  </ThemeContextProvider>
 );
 
 export const onServiceWorkerUpdateReady = () => {
   const answer = window.confirm(
-    `BandChordsApp has been updated. ` + `Reload to display the latest version?`
+    `BandChordsApp has been updated. Reload to display the latest version?`
   );
   if (answer === true) {
     window.location.reload();

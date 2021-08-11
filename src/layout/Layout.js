@@ -4,10 +4,12 @@ import BodyClassName from 'react-body-classname';
 import { Helmet } from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 import { ThemeContext } from '../context/themeContext';
+
 import Header from '../components/Header';
 
 const Layout = ({ children }) => {
   const { themeOption } = useContext(ThemeContext);
+
   const { site } = useStaticQuery(graphql`
     query {
       site {
