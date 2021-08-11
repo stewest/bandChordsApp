@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { useWakeLock } from 'react-screen-wake-lock';
 import { ThemeContext } from '../context/themeContext';
 import { WakeContext } from '../context/wakeContext';
+import { SvgLight, SvgLightOff } from './icons';
 
 export default function Header() {
   const { themeOption, setThemeOption } = useContext(ThemeContext);
@@ -92,7 +93,7 @@ export default function Header() {
           className="btn button keep-awake"
           onClick={() => (released === false ? release() : request())}
         >
-          {released === false ? 'Sleep' : 'Keep Awake'}
+          {released === false ? <SvgLightOff /> : <SvgLight />}
         </button>
       )}
     </header>
