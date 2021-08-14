@@ -133,7 +133,7 @@ button {
   }
 
   .section {
-    @apply text-xl mt-6 italic text-green-600 font-semibold;
+    @apply text-3xl mt-6 italic text-green-600 font-semibold;
   }
 
   &:first-of-type .em,
@@ -150,6 +150,11 @@ button {
 .strong,
 .chords {
   @apply font-bold;
+}
+
+.chords {
+  letter-spacing: 0.1rem;
+  font-family: sans-serif;
 }
 
 .list--inline li {

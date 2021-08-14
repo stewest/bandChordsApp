@@ -23,7 +23,7 @@ export default function setPage({ data: { set } }) {
           <main>
             <ul className="list p">
               {setObj.map((song) => (
-                <li key={song.id} className="list-none mb-1">
+                <li key={song.id} className="list-none mb-4">
                   <SvgMusicNotes />
                   <Link
                     to={`/song/${song.slug.current}`}

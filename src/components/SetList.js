@@ -5,7 +5,7 @@ import { SvgPaper } from './icons';
 
 function SetListItem({ setItem }) {
   return (
-    <li className="list-none mb-1">
+    <li className="list-none mb-4">
       <SvgPaper />
       <Link
         to={`/setlist/${setItem.slug.current}`}

@@ -6,7 +6,7 @@ import { SvgMusicNotes } from './icons';
 
 function SingleSong({ song }) {
   return (
-    <li className="list-none mb-1">
+    <li className="list-none mb-4">
       <SvgMusicNotes />
       <Link
         to={`/song/${song.slug.current}`}
