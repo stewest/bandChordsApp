@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useWakeLock } from 'react-screen-wake-lock';
 import { ThemeContext } from '../context/themeContext';
 import { WakeContext } from '../context/wakeContext';
-import { SvgLight, SvgLightOff } from './Icons';
+import { SvgLight, SvgLightOff } from './icons';
 
 export default function Header() {
   const { themeOption, setThemeOption } = useContext(ThemeContext);

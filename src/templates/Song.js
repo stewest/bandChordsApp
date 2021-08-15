@@ -12,7 +12,7 @@ import {
   SvgUpArrow,
   SvgPause,
   SvgStartScroll,
-} from '../components/Icons';
+} from '../components/icons';
 
 export default function SingleSongPage({ data: { Song, AllKeys } }) {
   const { wordsSize, setWordSize } = useContext(ThemeContext);
