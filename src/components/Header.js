@@ -3,14 +3,14 @@ import classNames from 'classnames';
 import { useWakeLock } from 'react-screen-wake-lock';
 import { ThemeContext } from '../context/themeContext';
 import { WakeContext } from '../context/wakeContext';
-import { SvgLight, SvgLightOff } from './icons';
+import { SvgLight, SvgLightOff } from './Icons';
 
 export default function Header() {
   const { themeOption, setThemeOption } = useContext(ThemeContext);
   const { wakeOption, setWakeOption } = useContext(WakeContext);
   const { isSupported, released, request, release } = useWakeLock({
     onRequest: () => setWakeOption(true),
-    onError: () => alert('An error happened 💥'),
+    onError: () => alert('An error happened 💥, Please refresh.'),
     onRelease: () => setWakeOption(false),
   });
 
@@ -93,7 +93,7 @@ export default function Header() {
           className="btn button keep-awake"
           onClick={() => (released === false ? release() : request())}
         >
-          {released === false ? <SvgLightOff /> : <SvgLight />}
+          {released === true ? <SvgLightOff /> : <SvgLight />}
         </button>
       )}
     </header>

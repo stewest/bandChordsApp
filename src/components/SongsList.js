@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import Select from 'react-select';
 import compareName from '../utils/functions';
-import { SvgMusicNotes } from './icons';
+import { SvgMusicNotes } from './Icons';
 
 function SingleSong({ song }) {
   return (

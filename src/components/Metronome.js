@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import { SvgLightning } from './icons';
+import { SvgLightning } from './Icons';
 
 export default function Metronome({ bpm }) {
   const pulseTime = `${(60 / bpm).toFixed(2)}s`;

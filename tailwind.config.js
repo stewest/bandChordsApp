@@ -1,7 +1,7 @@
 module.exports = {
   // purge: [],
   purge: ['./src/**/*.js'],
-  darkMode: 'class', // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     fontFamily: {
       mono: ['"Roboto Mono"', '"Courier"', 'Menlo'],
@@ -11,12 +11,12 @@ module.exports = {
     extend: {
       keyframes: {
         pulsebpm: {
-          '0%, 100%': { backgroundColor: '#21cc12' },
-          '50%': { backgroundColor: '#111' },
+          '0%': { backgroundColor: '#000' },
+          '100%': { backgroundColor: '#21cc12' },
         },
       },
       animation: {
-        pulsebpm: 'pulsebpm linear infinite 1s',
+        pulsebpm: 'pulsebpm linear infinite 300ms',
       },
     },
   },

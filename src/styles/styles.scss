@@ -123,6 +123,7 @@ button {
 .song--line {
   margin-bottom: 8px;
   margin-right: 5%;
+  line-height: 2.5rem;
 
   .em {
     @apply font-thin italic text-lg mt-6;
@@ -133,7 +134,7 @@ button {
   }
 
   .section {
-    @apply text-3xl mt-6 italic text-green-600 font-semibold;
+    @apply text-2xl mt-6 italic text-green-600 font-semibold;
   }
 
   &:first-of-type .em,
@@ -153,8 +154,13 @@ button {
 }
 
 .chords {
-  letter-spacing: 0.1rem;
-  font-family: sans-serif;
+  font-family: sans-serif; // Keep chord spaces smaller size
+  letter-spacing: 0.5ch;
+  white-space: break-spaces;
+
+  @media screen and (min-width: 1369px) {
+    letter-spacing: 1.6px;
+  }
 }
 
 .list--inline li {

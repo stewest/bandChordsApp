@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, Link, navigate } from 'gatsby';
 import { animateScroll as scroll } from 'react-scroll';
 import Layout from '../layout/Layout';
-import { SvgLeftArrow, SvgUpArrow, SvgMusicNotes } from '../components/icons';
+import { SvgLeftArrow, SvgUpArrow, SvgMusicNotes } from '../components/Icons';
 
 export default function setPage({ data: { set } }) {
   const setObj = set.setlistsongs;

@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { graphql, navigate } from 'gatsby';
 import classNames from 'classnames';
 import { animateScroll as scroll, scroller } from 'react-scroll';
 import TempoInput from '../components/TempoInput';
 import Metronome from '../components/Metronome';
 import Layout from '../layout/Layout';
+import { ThemeContext } from '../context/themeContext';
 
 import {
   SvgLeftArrow,
   SvgUpArrow,
   SvgPause,
   SvgStartScroll,
-} from '../components/icons';
+} from '../components/Icons';
 
 export default function SingleSongPage({ data: { Song, AllKeys } }) {
+  const { wordsSize, setWordSize } = useContext(ThemeContext);
   const activeScroll = false;
   const songObj = Song.songContent;
   const songLines = [];
@@ -41,10 +43,11 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
   };
 
   const ChordLine = ({ chordChars }) => (
-    <div className="text-indigo-400 mt-6">
+    <div className="text-blue-300 mt-6">
       {chordChars.replace(/ /g, '\u200A')}
     </div>
   );
+  // u200A
 
   const SectionLine = ({ sectionChars }) => (
     <div className="words-section font-semibold">{sectionChars}</div>
@@ -89,7 +92,13 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
 
   return (
     <Layout>
-      <div className={classNames('song--main-wrapper text-2xl')}>
+      <div
+        className={classNames('song--main-wrapper', {
+          'text-2xl': wordsSize === 2,
+          'text-3xl': wordsSize === 3,
+          'text-4xl': wordsSize === 4,
+        })}
+      >
         <div className="header--meta" id="top">
           <title>Band Chords | {Song.label}</title>
           <h1 className="font-bold text-2xl md:text-5xl mb-2">{Song.label}</h1>
@@ -146,18 +155,28 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
             <div className="song--controls grid grid-cols-3 md:grid-cols-6 lg:grid-cols-1 gap-2">
               <TempoInput bpm={currentTempo} func={setCurrentTempo} />
               <Metronome bpm={currentTempo} />
-              <button
-                type="button"
-                className="btn"
-                onClick={() => handleStartClick()}
-              >
-                <SvgStartScroll />
-                Start
-              </button>
-              <button type="button" className="btn">
-                <SvgPause />
-                Pause
-              </button>
+
+              {!scrollStatus && (
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={() => handleStartClick()}
+                >
+                  <SvgStartScroll />
+                  Start
+                </button>
+              )}
+
+              {scrollStatus && (
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={() => setScrollStatus(!scrollStatus)}
+                >
+                  <SvgPause />
+                  Pause
+                </button>
+              )}
               <button
                 type="button"
                 className="btn"
@@ -166,6 +185,27 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
                 <SvgUpArrow />
                 Top
               </button>
+
+              {wordsSize !== 3 && (
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={() => setWordSize(3)}
+                >
+                  Font ++
+                </button>
+              )}
+
+              {wordsSize === 3 && (
+                <button
+                  type="button"
+                  className="btn"
+                  onClick={() => setWordSize(2)}
+                >
+                  Font Reset
+                </button>
+              )}
+
               <button
                 type="button"
                 className="btn"

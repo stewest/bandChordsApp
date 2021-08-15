@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import Select from 'react-select';
-import { SvgPaper } from './icons';
+import { SvgPaper } from './Icons';
 
 function SetListItem({ setItem }) {
   return (
