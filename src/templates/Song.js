@@ -160,6 +160,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
                 <button
                   type="button"
                   className="btn"
+                  aria-label="Start song Scrolling down"
                   onClick={() => handleStartClick()}
                 >
                   <SvgStartScroll />
@@ -171,6 +172,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
                 <button
                   type="button"
                   className="btn"
+                  aria-label="Pause Scroll"
                   onClick={() => setScrollStatus(!scrollStatus)}
                 >
                   <SvgPause />
@@ -180,6 +182,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
               <button
                 type="button"
                 className="btn"
+                aria-label="Scroll to top"
                 onClick={() => scroll.scrollToTop()}
               >
                 <SvgUpArrow />
@@ -188,6 +191,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
 
               {wordsSize !== 3 && (
                 <button
+                  aria-label="Increase word size"
                   type="button"
                   className="btn"
                   onClick={() => setWordSize(3)}
@@ -200,6 +204,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
                 <button
                   type="button"
                   className="btn"
+                  aria-label="Reset word size"
                   onClick={() => setWordSize(2)}
                 >
                   Font Reset
@@ -209,6 +214,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
               <button
                 type="button"
                 className="btn"
+                aria-label="Navigate back 1"
                 onClick={() => navigate(-1)}
               >
                 <SvgLeftArrow />
