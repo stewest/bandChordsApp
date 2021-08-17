@@ -91,6 +91,7 @@ export default function Header() {
         <button
           type="button"
           className="btn button keep-awake"
+          aria-label="Keep Screen Awake or allow to sleep"
           onClick={() => (released === false ? release() : request())}
         >
           {released === true ? <SvgLightOff /> : <SvgLight />}
