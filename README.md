@@ -9,15 +9,14 @@
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+1.  **Install**
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+    Use Yarn to install and 14 < version of node..
 
     ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
+    # if you need to switch node version, you could use NVM. nvm use 14.
+    yarn install
     ```
-
 2.  **Start developing.**
 
     Navigate into your new site’s directory and start it up.
@@ -26,14 +25,18 @@
     cd my-gatsby-site/
     npm run develop
     ```
+    
+3. **Sanity Backend**
+    You'll need to set your own .ENV variables. This project relies on a seperate repo, with Sanity.io backend. 
+    https://github.com/stewest/bandChordsAppSanity   
 
-3.  **Open the code and start customizing!**
+4.  **Open the code and start customizing!**
 
     Your site is now running at http://localhost:8000!
 
     Edit `src/pages/index.js` to see your site update in real-time!
 
-4.  **Learn more**
+5.  **Learn more**
 
     - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
@@ -46,6 +49,16 @@
     - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
     - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+
+6.  **Create a Gatsby site, if it is your first time**
+
+    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+
+    ```shell
+    # create a new Gatsby site using the minimal starter
+    npm init gatsby
+    ```
+
 
 ## 🚀 Quick start (Gatsby Cloud)
 
