@@ -25,6 +25,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-web-font-loader',
     },
+    'gatsby-plugin-image',
     `gatsby-plugin-react-helmet`,
     {
       resolve: 'gatsby-plugin-sass',
