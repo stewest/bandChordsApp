@@ -88,7 +88,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
     return WordLine({ wordChars: lineContent });
   };
 
-  const [currentTempo, setCurrentTempo] = useState(Song.tempo);
+  const [currentTempo, setCurrentTempo] = useState(Song.tempo ? Song.tempo : 0);
 
   return (
     <Layout>
@@ -104,19 +104,29 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
           <h1 className="font-bold text-2xl md:text-5xl mb-2">{Song.label}</h1>
           <ul className="list--inline song--meta pb-8 text-gray-400 text-base md:text-2xl">
             <li className="font-light">
-              Tempo: <span className="font-bold">{Song.tempo}</span>
+              Tempo:{' '}
+              <span className="font-bold">{Song.tempo ? Song.tempo : 0}</span>
             </li>
             <li className="font-light">
-              Writer: <span className="font-bold">{Song.writer}</span>
+              Writer:{' '}
+              <span className="font-bold">
+                {Song.writer ? Song.writer : 'Unknown'}
+              </span>
             </li>
             <li className="font-light">
-              Key: <span className="font-bold">{Song.key.keyName}</span>
+              Key:{' '}
+              <span className="font-bold">
+                {Song.key.keyName ? Song.key.keyName : unknown}
+              </span>
             </li>
             {Song.songtimesignature && (
               <li>
                 Time:
                 <span className="font-bold">
-                  &nbsp;{Song.songtimesignature.time}
+                  &nbsp;
+                  {Song.songtimesignature.time
+                    ? Song.songtimesignature.time
+                    : 'non'}
                 </span>
               </li>
             )}
@@ -131,7 +141,7 @@ export default function SingleSongPage({ data: { Song, AllKeys } }) {
           </ul>
           {Song.notes && (
             <div className="mb-4 text-gray-400 text-lg">
-              Notes: {Song.notes}
+              Notes: {Song.notes ? Song.notes : 'none'}
             </div>
           )}
         </div>

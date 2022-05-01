@@ -1,6 +1,5 @@
 module.exports = {
-  // purge: [],
-  purge: ['./src/**/*.js'],
+  content: ['./src/**/*.js'],
   darkMode: 'class',
   theme: {
     fontFamily: {
@@ -12,11 +11,12 @@ module.exports = {
       keyframes: {
         pulsebpm: {
           '0%': { backgroundColor: '#000' },
-          '100%': { backgroundColor: '#21cc12' },
+          '50%': { backgroundColor: '#21cc12' },
+          '0%': { backgroundColor: '#000' },
         },
       },
       animation: {
-        pulsebpm: 'pulsebpm linear infinite 300ms',
+        pulsebpm: 'pulsebpm 300ms step-start infinite',
       },
     },
   },

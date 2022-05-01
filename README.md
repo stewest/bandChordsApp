@@ -11,7 +11,7 @@
 
 1.  **Install**
 
-    Use Yarn to install and 14 < version of node..
+    Use Yarn to install and 16 < version of node..
 
     ```shell
     # if you need to switch node version, you could use NVM. nvm use 14.
@@ -25,10 +25,10 @@
     cd my-gatsby-site/
     npm run develop
     ```
-    
+
 3. **Sanity Backend**
-    You'll need to set your own .ENV variables. This project relies on a seperate repo, with Sanity.io backend. 
-    https://github.com/stewest/bandChordsAppSanity   
+    You'll need to set your own .ENV variables. This project relies on a seperate repo, with Sanity.io backend.
+    https://github.com/stewest/bandChordsAppSanity
 
 4.  **Open the code and start customizing!**
 
